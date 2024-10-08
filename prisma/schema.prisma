@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id_user       Int       @id @default(autoincrement())
+  nik           String    @unique
+  name          String
+  email         String    @unique 
+  password      String
+  role          String    @default("pelamar")
+  refreshToken  String    @default("")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  pelamar       pelamars? // Reference to pelamars table, no need to define fields or references here
+}
+
+model pelamars {
+  id_pelamar      Int       @id @default(autoincrement())
+  jenis_kelamin   String
+  nomor_tlp       String 
+  tempat_lahir    String
+  tgl_lahir       DateTime
+  provinsi        String
+  kabupaten       String
+  kecamatan       String
+  kelurahan       String
+  detail_alamat   String
+  pendidikan      String
+  nilai_rata      Int
+  jurusan         String
+  photo           String
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  userId          Int       @unique   // Foreign key to users table
+  user            users     @relation(fields: [userId], references: [id_user])
+}
