@@ -19,7 +19,7 @@ const createPelamar = async (req, res) => {
     nilai_rata,
     jurusan,
     photo,
-    id_user,
+    userId,
   } = req.body;
 
   try {
@@ -38,11 +38,7 @@ const createPelamar = async (req, res) => {
         nilai_rata,
         jurusan,
         photo,
-        user: {
-          connect: {
-            id_user: id_user, // Pastikan id_user berasal dari req.body atau request lainnya
-          },
-        },
+        userId: userId,
       },
     });
     

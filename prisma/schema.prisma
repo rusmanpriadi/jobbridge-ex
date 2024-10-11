@@ -8,7 +8,7 @@ datasource db {
 }
 
 model users {
-  id_user       Int       @id @default(autoincrement())
+  id       Int       @id @default(autoincrement())
   nik           String    @unique
   name          String
   email         String    @unique 
@@ -40,5 +40,5 @@ model pelamars {
   updatedAt       DateTime  @updatedAt
 
   userId          Int       @unique   // Foreign key to users table
-  user            users     @relation(fields: [userId], references: [id_user])
+  user             users     @relation(fields: [userId], references: [id])
 }

@@ -7,7 +7,7 @@ const getPelamarProfile = async (req, res) => {
     // Fetch the user and related pelamar data
     const userWithPelamar = await prisma.users.findUnique({
       where: {
-        id_user: parseInt(userId), // Convert to integer if necessary
+        id: parseInt(userId), // Convert to integer if necessary
       },
       include: {
         pelamar: true, // Include related pelamar data

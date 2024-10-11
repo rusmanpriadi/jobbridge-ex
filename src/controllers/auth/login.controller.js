@@ -25,9 +25,9 @@ const loginUserCtrl = async (req, res, next) => {
       });
     }
 
-    const refreshToken = await generateRefreshToken(findUser.id_user);
+    const refreshToken = await generateRefreshToken(findUser.id);
     const updateUser = await prisma.users.update({
-      where: { id_user: findUser.id_user },
+      where: { id: findUser.id },
       data: { refreshToken },
     });
 
