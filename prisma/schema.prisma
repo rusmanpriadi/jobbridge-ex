@@ -27,11 +27,9 @@ model pelamars {
   nomor_tlp       String 
   tempat_lahir    String
   tgl_lahir       DateTime
-  provinsi        String
-  kabupaten       String
-  kecamatan       String
-  kelurahan       String
-  detail_alamat   String
+  agama           String
+  domisili        String
+  alamat_lengkap   String
   pendidikan      String
   nilai_rata      Int
   jurusan         String

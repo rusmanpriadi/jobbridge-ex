@@ -11,8 +11,8 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // parser body request
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true, limit: "10mb" }));
+app.use(bodyParser.json({ limit: "10mb" }));
 
 const corsOptions = {
   origin: "http://localhost:3000",
