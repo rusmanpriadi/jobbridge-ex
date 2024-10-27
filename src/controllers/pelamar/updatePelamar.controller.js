@@ -67,6 +67,7 @@ const updatePelamar = async (req, res) => {
               jenis_kelamin,
               nomor_tlp,
               tgl_lahir: formattedDate,
+              
               ...pelamarData,
             },
           });
